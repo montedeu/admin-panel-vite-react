@@ -34,7 +34,7 @@ const SidebarItem = ({ href, label, isCollapsed, icon }) => {
     );
 };
 
-const Sidebar = () => {
+const Sidebar = ({ isCollapsed, toggleSidebar  }) => {
     const sidebarItems = [
         { href: '/admin/home', label: 'Dashboard', icon: faChartPie},
         { href: '/admin/pending-farmers', label: 'Pending Farmers', icon: faUsers},
@@ -49,18 +49,41 @@ const Sidebar = () => {
         >
             <button
                 onClick={toggleSidebar}
+                className={"absolute -right-2.5 top-0 w-6 h-6 flex justify-center items-center hover:bg-gray-300 rounded-full transition cursor-pointer focus:outline-none bg-gray-200"}
             >
-
+                {isCollapsed ? (
+                    <FontAwesomeIcon icon={faArrowRight} />
+                ) : (
+                    <FontAwesomeIcon icon={faArrowLeft} />
+                )}
             </button>
+
+            {/* Sidebar Navigation */}
+            <nav className={"mt-4"}>
+                <ul>
+                    {sidebarItems.map((item) => (
+                        <SidebarItem
+                            key={item.href}
+                            href={item.href}
+                            label={item.label}
+                            isCollapsed={isCollapsed}
+                            icon={item.icon}
+                        />
+                    ))}
+                </ul>
+            </nav>
         </aside>
     );
 };
 
 SidebarItem.propTypes = {
-    href: PropTypes.string,
-    label: PropTypes.string,
-    isCollapsed: PropTypes.bool,
-    icon: PropTypes.string,
+    href: PropTypes.any,
+    label: PropTypes.any,
+    isCollapsed: PropTypes.any,
+    icon: PropTypes.any,
 }
-
+Sidebar.propTypes = {
+    isCollapsed: PropTypes.any,
+    toggleSidebar: PropTypes.any,
+}
 export default Sidebar;
