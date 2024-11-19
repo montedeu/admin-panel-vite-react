@@ -7,7 +7,7 @@ import {
     faUsersCog,
     faArrowLeft,
     faArrowRight,
-} from '@fortawesome/free-solid-svg-icon';
+} from '@fortawesome/free-solid-svg-icons';
 
 const SidebarItem = ({ href, label, isCollapsed, icon }) => {
     const location = useLocation();

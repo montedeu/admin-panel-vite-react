@@ -6,9 +6,9 @@ import router from './routes/AppRoutes.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      {/*  <BrowserRouter>
+      {/* <BrowserRouter>
         <App />
       </BrowserRouter> */}
       <RouterProvider router={router} />
   </StrictMode>,
-)
+);
