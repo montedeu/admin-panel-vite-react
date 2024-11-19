@@ -1,17 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AdminLayout from "./components/AdminLayout";
+import AdminLayout from "./components/layouts/AdminLayout";
 
 const App = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/admin/*" element={<AdminLayout />}>
-                    {/* Nested Routes */}
-                    <Route path={} />
-                </Route>
-            </Routes>
-        </Router>
-    )
-}
+    return <AdminLayout />;
+};
 
 export default App
